@@ -58,9 +58,8 @@ class conexionMT5:
                                 self.endHour), 
                                 )
         self.ticks = ticks
-        self.rates = rates
         MT5Shutdown()
-        return self.ticks, self.rates
+        return self.ticks
 
     def getRatesFromMT5(
                         self,
@@ -125,3 +124,8 @@ class conexionMT5:
     
 divisaEURUSD=conexionMT5('EURUSD')
 divisaEURUSD.getTicksFromMT5(2019,11,14,5,2019,11,14,6)
+divisaEURUSD.getRatesFromMT5(2019,11,14,5,2019,11,14,6)
+print(divisaEURUSD.divisa + '_ticks(', len(divisaEURUSD.ticks), ')')
+for val in divisaEURUSD.ticks[:10]: print(val)
+print(divisaEURUSD.divisa + '_rates(', len(divisaEURUSD.rates), ')')
+for val in divisaEURUSD.rates[:10]: print (val)
